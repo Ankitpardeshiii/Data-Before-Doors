@@ -68,7 +68,6 @@ This project uses the **California Housing Dataset**.
 * **Numerical Features:** All remaining attributes
 
 ---
-
 ## ⚙️ Preprocessing Steps
 
 ### 🔢 Numerical Features
