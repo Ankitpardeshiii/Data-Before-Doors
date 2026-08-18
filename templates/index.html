@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Data Before Doors | University Prediction</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <div class="page">
+
+        <!-- Header -->
+        <header class="header">
+
+            <div class="brand">
+                <div class="brand-icon">DBD</div>
+
+                <div>
+                    <h1>Data Before Doors</h1>
+                    <p>University Enrollment Prediction</p>
+                </div>
+            </div>
+
+            <div class="model-badge">
+                <span class="status-dot"></span>
+                ML Model Active
+            </div>
+
+        </header>
+
+
+        <!-- Main Content -->
+        <main class="main">
+
+            <section class="intro">
+
+                <span class="eyebrow">
+                    MACHINE LEARNING PROJECT
+                </span>
+
+                <h2>
+                    Predict a student's
+                    <span>university outcome.</span>
+                </h2>
+
+                <p>
+                    Enter the student's basic enrollment information
+                    and let the machine learning model predict their
+                    expected academic outcome.
+                </p>
+
+            </section>
+
+
+            <!-- Prediction Card -->
+            <section class="prediction-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Student Information</h3>
+
+                        <p>
+                            Provide the information used by the trained model.
+                        </p>
+                    </div>
+
+                    <div class="step">
+                        STEP 01
+                    </div>
+
+                </div>
+
+
+                <form method="POST">
+
+                    <div class="form-grid">
+
+
+                        <!-- Age -->
+                        <div class="form-group">
+
+                            <label for="age">
+                                Age at Enrollment
+                            </label>
+
+                            <input
+                                type="number"
+                                id="age"
+                                name="age"
+                                min="15"
+                                max="80"
+                                placeholder="e.g. 19"
+                                required
+                            >
+
+                            <small>
+                                Student's age when enrolling.
+                            </small>
+
+                        </div>
+
+
+                        <!-- Admission Grade -->
+                        <div class="form-group">
+
+                            <label for="admission_grade">
+                                Admission Grade
+                            </label>
+
+                            <input
+                                type="number"
+                                id="admission_grade"
+                                name="admission_grade"
+                                step="0.01"
+                                placeholder="e.g. 135"
+                                required
+                            >
+
+                            <small>
+                                Admission score.
+                            </small>
+
+                        </div>
+
+
+                        <!-- Previous Grade -->
+                        <div class="form-group">
+
+                            <label for="previous_grade">
+                                Previous Qualification Grade
+                            </label>
+
+                            <input
+                                type="number"
+                                id="previous_grade"
+                                name="previous_grade"
+                                step="0.01"
+                                placeholder="e.g. 125"
+                                required
+                            >
+
+                            <small>
+                                Grade from previous qualification.
+                            </small>
+
+                        </div>
+
+
+                        <!-- Gender -->
+                        <div class="form-group">
+
+                            <label for="gender">
+                                Gender
+                            </label>
+
+                            <select
+                                id="gender"
+                                name="gender"
+                                required
+                            >
+
+                                <option value="" disabled selected>
+                                    Select gender
+                                </option>
+
+                                <option value="1">
+                                    Category 1
+                                </option>
+
+                                <option value="0">
+                                    Category 0
+                                </option>
+
+                            </select>
+
+                            <small>
+                                Encoded category from the dataset.
+                            </small>
+
+                        </div>
+
+
+                        <!-- Scholarship -->
+                        <div class="form-group">
+
+                            <label for="scholarship">
+                                Scholarship Holder
+                            </label>
+
+                            <select
+                                id="scholarship"
+                                name="scholarship"
+                                required
+                            >
+
+                                <option value="" disabled selected>
+                                    Select option
+                                </option>
+
+                                <option value="1">
+                                    Yes
+                                </option>
+
+                                <option value="0">
+                                    No
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Tuition -->
+                        <div class="form-group">
+
+                            <label for="tuition">
+                                Tuition Fees Up to Date
+                            </label>
+
+                            <select
+                                id="tuition"
+                                name="tuition"
+                                required
+                            >
+
+                                <option value="" disabled selected>
+                                    Select option
+                                </option>
+
+                                <option value="1">
+                                    Yes
+                                </option>
+
+                                <option value="0">
+                                    No
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Debtor -->
+                        <div class="form-group">
+
+                            <label for="debtor">
+                                Debtor
+                            </label>
+
+                            <select
+                                id="debtor"
+                                name="debtor"
+                                required
+                            >
+
+                                <option value="" disabled selected>
+                                    Select option
+                                </option>
+
+                                <option value="0">
+                                    No
+                                </option>
+
+                                <option value="1">
+                                    Yes
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- International -->
+                        <div class="form-group">
+
+                            <label for="international">
+                                International Student
+                            </label>
+
+                            <select
+                                id="international"
+                                name="international"
+                                required
+                            >
+
+                                <option value="" disabled selected>
+                                    Select option
+                                </option>
+
+                                <option value="0">
+                                    No
+                                </option>
+
+                                <option value="1">
+                                    Yes
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Submit -->
+                    <button
+                        type="submit"
+                        class="predict-btn"
+                    >
+
+                        <span>
+                            Predict Student Outcome
+                        </span>
+
+                        <span class="arrow">
+                            →
+                        </span>
+
+                    </button>
+
+                </form>
+
+            </section>
+
+
+            <!-- Result -->
+            {% if prediction %}
+
+            <section class="result-card">
+
+                <div class="result-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span class="result-label">
+                        PREDICTION RESULT
+                    </span>
+
+                    <h3>
+                        {{ prediction }}
+                    </h3>
+
+                    <p>
+                        Based on the information provided,
+                        the model predicts this student's
+                        current outcome category.
+                    </p>
+
+                </div>
+
+            </section>
+
+            {% endif %}
+
+
+            <!-- Disclaimer -->
+            <div class="disclaimer">
+
+                <span>ⓘ</span>
+
+                <p>
+                    This prediction is generated by a machine learning
+                    model for educational and demonstration purposes.
+                    It should not be used as the sole basis for decisions
+                    about individual students.
+                </p>
+
+            </div>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer>
+
+            <p>
+                Data Before Doors
+                <span>•</span>
+                University Enrollment Prediction
+            </p>
+
+            <p>
+                Built with Python · Flask · Scikit-learn
+            </p>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
